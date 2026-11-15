@@ -25,12 +25,13 @@ This issue of Pathreview involves the faithfulness checker and how right now it'
 3. After that gets run, the type error message will get returned: `TypeError: sequence item 0: expected str instance, NoneType found`.
 4. Run the dedicated test for this issue from the unittest folder: `.venv\Scripts\python.exe -m pytest tests/unit/test_faithfulness_checker.py::TestFaithfulnessChecker::test_none_context_chunk_text -q`. This test will return `xfailed` becuase the test is marked as expected to fail.
 
-**Reproduction commit link:** [link to commit documenting the reproduced issue]
+**Reproduction commit link:** https://github.com/ChrisReid27/pathreview-ai201-fa26-howard/commit/981e604fbff4bf762898c370b326853c86484ed0
 
 **Reproduction summary:**
 [1–2 sentences: How did you reproduce the issue? What did you observe?]
+I reproduced the bug by calling `FaithfulenessChecker().check("Knows Python.", [{"text": None}])` and running the designated faithfulness checker test within the unittest folder (which had an expected fail). What I observed is that because the checker passes `None` to `" ".join(...)`, it crashes with `TypeErrror: sequence item 0: expected str instance, NoneType found`.
 
-**PLAN.md link:** [link to PLAN.md in your fork]
+**PLAN.md link:** https://github.com/ChrisReid27/pathreview-ai201-fa26-howard/commit/875cf371e5c62d2be455720a1b93595c29ee5805
 
 **Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
 
