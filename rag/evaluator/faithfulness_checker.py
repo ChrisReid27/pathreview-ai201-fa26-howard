@@ -34,7 +34,10 @@ class FaithfulnessChecker:
             logger.info("faithfulness_no_claims_extracted")
             return 0.5  # Default to neutral if no extractable claims
 
-        # Concatenate context text
+        # Concatenate context text | This is where the bug issue lives.
+        # chunk.get("text", "") only uses `""` when the text key is missing,
+        # so when the key exists but is None, what gets returned is None.
+        # This makes the joining fail which causes the error.
         context_text = " ".join([chunk.get("text", "") for chunk in context_chunks])
 
         # Check each claim for support
