@@ -28,12 +28,11 @@ This issue of Pathreview involves the faithfulness checker and how right now it'
 **Reproduction commit link:** https://github.com/ChrisReid27/pathreview-ai201-fa26-howard/commit/981e604fbff4bf762898c370b326853c86484ed0
 
 **Reproduction summary:**
-[1–2 sentences: How did you reproduce the issue? What did you observe?]
-I reproduced the bug by calling `FaithfulenessChecker().check("Knows Python.", [{"text": None}])` and running the designated faithfulness checker test within the unittest folder (which had an expected fail). What I observed is that because the checker passes `None` to `" ".join(...)`, it crashes with `TypeErrror: sequence item 0: expected str instance, NoneType found`.
+I reproduced the bug by calling `FaithfulnessChecker().check("Knows Python.", [{"text": None}])` and running the designated faithfulness checker test within the unittest folder (which had an expected fail). What I observed is that because the checker passes `None` to `" ".join(...)`, it crashes with `TypeError: sequence item 0: expected str instance, NoneType found`.
 
 **PLAN.md link:** https://github.com/ChrisReid27/pathreview-ai201-fa26-howard/commit/875cf371e5c62d2be455720a1b93595c29ee5805
 
 **Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
 
 **Blockers or open questions:**
-[Anything you're still uncertain about going into Unit 9, or leave blank]
+Based on my edge cases from Plan.md, going into unit 9, there is the concern of how missing or empty `text` values should be treated, and whether mixed valid and invalid chunks should still get scored normally. Also, I need to make sure that ignoring the `None` chunks won't produce any misleading faithfulness scores when they are the only or most significant context available.
