@@ -222,11 +222,7 @@ class TestFaithfulnessChecker:
         assert isinstance(supported, bool)
         # Need at least 2 meaningful tokens for support
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="issue #60: faithfulness checker crashes when a context chunk has text: None",
-    )
-    def test_none_context_chunk_text(self, checker):  # Test that reproduces issue #60.
+    def test_none_context_chunk_text(self, checker):
         """Test handling of None in context chunk text."""
         feedback = "Has Python skills"
         context_chunks = [{"text": None}]
