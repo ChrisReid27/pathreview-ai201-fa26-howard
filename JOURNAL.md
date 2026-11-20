@@ -43,28 +43,28 @@ Based on my edge cases from Plan.md, going into unit 9, there is the concern of 
 ### Check-in 1 (mid-week)
 
 **Current progress:**
-[What have you implemented so far? Which sub-tasks from PLAN.md are done?]
+I've implemented the fix for the faithfulness checker issue. Subtasks 1-4 are finished and everything looks good. I made sure my changes didn't affect the rest of the codebase.
 
 **Next steps:**
-[What are you working on for the rest of the week?]
+Getting ready to open the PR in the correct format and edit my commit history titles to be in proper contributing format.
 
 **Blockers:**
-[Anything slowing you down? Or leave blank.]
+Nothing is slowing me down, I'm on track with fixing the issue.
 
 ---
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** https://github.com/codepath/pathreview-ai201-fa26-howard/pull/97
 
-**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+**Branch:** `fix/60-faithfulness-checker-crashes`
 
 **What you built:**
-[1–3 sentences summarizing what your fix does and how it works]
+I updated `FaithfulnessChecker.check()` to safely normalize missing or `None` context text to an empty string before joining chunks. This prevents a `TypeError` while preserving normal scoring for valid text and mixed valid/invalid chunks.
 
 **Tests added or updated:**
-[Which test files did you touch? What do they cover?]
+I updated `tests/unit/test_faithfulness_checker.py` with edge case coverage for `None` text, missing text keys, mixed valid and invalid chunks, empty text, and contexts containing only `None` values.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [X] make check passes  [X] make test-unit passes
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+**Draft PR feedback received from:** none
