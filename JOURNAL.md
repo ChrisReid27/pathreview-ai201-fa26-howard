@@ -55,7 +55,7 @@ Nothing is slowing me down, I'm on track with fixing the issue.
 
 ### Check-in 2 (end of week)
 
-**PR link:** https://github.com/codepath/pathreview-ai201-fa26-howard/pull/97
+**PR link:** https://github.com/codepath/pathreview-ai201-fa26-howard/pull/97#issue-6461316861
 
 **Branch:** `fix/60-faithfulness-checker-crashes`
 
